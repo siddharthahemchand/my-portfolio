@@ -1,7 +1,35 @@
 "use client";
 import React from "react";
 
-const projects = [
+type Project = {
+  id: string;
+  icon: string;
+  title: string;
+  domain: string;
+  intro: string;
+  problem: string;
+  role: string;
+  did: string[];
+  solution: string[];
+  impact: string[];
+};
+
+type SectionTitleProps = {
+  eyebrow: string;
+  title: string;
+  description?: string;
+};
+
+type BadgeProps = {
+  children: React.ReactNode;
+};
+
+type MiniCardProps = {
+  title: string;
+  text: string;
+};
+
+const projects: Project[] = [
   {
     id: "01",
     icon: "🏦",
@@ -94,7 +122,7 @@ const projects = [
   },
 ];
 
-const skills = [
+const skills: string[] = [
   "Requirement Gathering",
   "Stakeholder Analysis",
   "Process Mapping",
@@ -109,7 +137,7 @@ const skills = [
   "Power BI",
 ];
 
-function SectionTitle({ eyebrow, title, description }) {
+function SectionTitle({ eyebrow, title, description }: SectionTitleProps) {
   return (
     <div className="max-w-3xl">
       <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-zinc-500">
@@ -125,7 +153,7 @@ function SectionTitle({ eyebrow, title, description }) {
   );
 }
 
-function Badge({ children }) {
+function Badge({ children }: BadgeProps) {
   return (
     <span className="rounded-full border border-zinc-200/90 bg-white/90 px-4 py-2 text-sm text-zinc-700 shadow-[0_6px_18px_rgba(24,24,27,0.05)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-violet-200 hover:shadow-[0_10px_24px_rgba(168,85,247,0.12)]">
       {children}
@@ -133,7 +161,7 @@ function Badge({ children }) {
   );
 }
 
-function MiniCard({ title, text }) {
+function MiniCard({ title, text }: MiniCardProps) {
   return (
     <div className="rounded-3xl border border-zinc-200/90 bg-white/92 p-5 shadow-[0_10px_30px_rgba(24,24,27,0.06)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-violet-200 hover:shadow-[0_16px_40px_rgba(168,85,247,0.14)]">
       <p className="text-sm font-semibold text-zinc-900">{title}</p>
@@ -159,7 +187,7 @@ export default function Home() {
                 Business Analyst Portfolio
               </p>
               <h1 className="mt-5 text-5xl font-semibold tracking-tight text-zinc-950 sm:text-6xl lg:text-7xl">
-                Siddhartha Nidiginti
+                Siddhartha Hemchand Nidiginti
               </h1>
               <p className="mt-4 text-lg font-medium text-zinc-700 sm:text-xl">
                 Aspiring Business Analyst • Product & Data Enthusiast
@@ -179,7 +207,7 @@ export default function Home() {
                   View Projects
                 </a>
                 <a
-                  href="mailto:siddhartha-hemchand.nidiginti.870@my.csun.edu"
+                  href="mailto:siddharthahemchand@gmail.com"
                   className="rounded-full border border-violet-200 bg-white/90 px-6 py-3 text-sm font-medium text-zinc-900 shadow-[0_8px_24px_rgba(168,85,247,0.08)] transition duration-300 hover:-translate-y-0.5 hover:border-violet-300 hover:bg-white hover:shadow-[0_12px_32px_rgba(168,85,247,0.16)]"
                 >
                   Email Me
@@ -202,15 +230,17 @@ export default function Home() {
                 <div className="mt-5 grid gap-5 sm:grid-cols-2">
                   <MiniCard
                     title="Education"
-                    text="M.S. in Engineering Management at California State University, Northridge."
+                    text="M.S. in Engineering Management with Data Analytics specialization at California State University, Northridge."
                   />
                   <MiniCard
                     title="Background"
-                    text="Computer Engineering with strong interest in business analysis, product, and data-driven problem solving."
+                    text="Background in Business Analytics and Engineering Management with a focus on data-driven problem solving and structured business decision making."
                   />
                 </div>
                 <div className="mt-5 rounded-3xl border border-zinc-200/80 bg-[linear-gradient(180deg,rgba(250,250,250,1),rgba(245,243,255,0.72))] p-5 shadow-[0_8px_24px_rgba(24,24,27,0.04)]">
-                  <p className="text-sm font-semibold text-zinc-900">What I focus on</p>
+                  <p className="text-sm font-semibold text-zinc-900">
+                    What I focus on
+                  </p>
                   <p className="mt-2 text-sm leading-6 text-zinc-600">
                     Understanding how current systems work, identifying gaps, and
                     shaping better solutions that improve both user experience and
@@ -223,16 +253,28 @@ export default function Home() {
                 <p className="text-sm font-semibold text-zinc-900">My approach</p>
                 <div className="mt-5 grid gap-4 sm:grid-cols-3">
                   <div className="rounded-2xl border border-zinc-200/80 bg-[linear-gradient(180deg,rgba(250,250,250,1),rgba(245,243,255,0.6))] p-4 shadow-[0_6px_18px_rgba(24,24,27,0.04)] transition duration-300 hover:border-violet-200 hover:shadow-[0_10px_24px_rgba(168,85,247,0.10)]">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">01 Discover</p>
-                    <p className="mt-2 text-sm leading-6 text-zinc-600">Study the current process, pain points, and goals.</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
+                      01 Discover
+                    </p>
+                    <p className="mt-2 text-sm leading-6 text-zinc-600">
+                      Study the current process, pain points, and goals.
+                    </p>
                   </div>
                   <div className="rounded-2xl border border-zinc-200/80 bg-[linear-gradient(180deg,rgba(250,250,250,1),rgba(245,243,255,0.6))] p-4 shadow-[0_6px_18px_rgba(24,24,27,0.04)] transition duration-300 hover:border-violet-200 hover:shadow-[0_10px_24px_rgba(168,85,247,0.10)]">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">02 Define</p>
-                    <p className="mt-2 text-sm leading-6 text-zinc-600">Turn findings into requirements, flows, and stories.</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
+                      02 Define
+                    </p>
+                    <p className="mt-2 text-sm leading-6 text-zinc-600">
+                      Turn findings into requirements, flows, and stories.
+                    </p>
                   </div>
                   <div className="rounded-2xl border border-zinc-200/80 bg-[linear-gradient(180deg,rgba(250,250,250,1),rgba(245,243,255,0.6))] p-4 shadow-[0_6px_18px_rgba(24,24,27,0.04)] transition duration-300 hover:border-violet-200 hover:shadow-[0_10px_24px_rgba(168,85,247,0.10)]">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">03 Improve</p>
-                    <p className="mt-2 text-sm leading-6 text-zinc-600">Shape a practical solution with business value.</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
+                      03 Improve
+                    </p>
+                    <p className="mt-2 text-sm leading-6 text-zinc-600">
+                      Shape a practical solution with business value.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -241,7 +283,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="projects" className="relative mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-12 lg:py-24">
+      <section
+        id="projects"
+        className="relative mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-12 lg:py-24"
+      >
         <SectionTitle
           eyebrow="Selected Work"
           title="Case studies that show how I think through business problems"
@@ -335,16 +380,28 @@ export default function Home() {
                     </p>
                     <div className="mt-4 grid gap-3 sm:grid-cols-3">
                       <div className="rounded-2xl border border-zinc-200/80 bg-white p-4 shadow-[0_6px_18px_rgba(24,24,27,0.04)] transition duration-300 hover:border-violet-200 hover:shadow-[0_10px_24px_rgba(168,85,247,0.10)]">
-                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">Before</p>
-                        <p className="mt-2 text-sm text-zinc-700">Manual process and friction</p>
+                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
+                          Before
+                        </p>
+                        <p className="mt-2 text-sm text-zinc-700">
+                          Manual process and friction
+                        </p>
                       </div>
                       <div className="rounded-2xl border border-zinc-200/80 bg-white p-4 shadow-[0_6px_18px_rgba(24,24,27,0.04)] transition duration-300 hover:border-violet-200 hover:shadow-[0_10px_24px_rgba(168,85,247,0.10)]">
-                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">BA Work</p>
-                        <p className="mt-2 text-sm text-zinc-700">Analysis, mapping, and requirements</p>
+                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
+                          BA Work
+                        </p>
+                        <p className="mt-2 text-sm text-zinc-700">
+                          Analysis, mapping, and requirements
+                        </p>
                       </div>
                       <div className="rounded-2xl border border-zinc-200/80 bg-white p-4 shadow-[0_6px_18px_rgba(24,24,27,0.04)] transition duration-300 hover:border-violet-200 hover:shadow-[0_10px_24px_rgba(168,85,247,0.10)]">
-                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">After</p>
-                        <p className="mt-2 text-sm text-zinc-700">Clearer workflow and better experience</p>
+                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
+                          After
+                        </p>
+                        <p className="mt-2 text-sm text-zinc-700">
+                          Clearer workflow and better experience
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -384,16 +441,18 @@ export default function Home() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="mailto:siddhartha-hemchand.nidiginti.870@my.csun.edu"
+              href="mailto:siddharthahemchand@gmail.com"
               className="rounded-full bg-[linear-gradient(135deg,#ffffff_0%,#f5f3ff_100%)] px-6 py-3 text-sm font-medium text-zinc-950 shadow-[0_10px_30px_rgba(255,255,255,0.08),0_12px_32px_rgba(168,85,247,0.18)] transition duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_14px_36px_rgba(168,85,247,0.24)]"
             >
-              siddhartha-hemchand.nidiginti.870@my.csun.edu
+              siddharthahemchand@gmail.com
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/siddhartha-hemchand-119193218/"
+              target="_blank"
+              rel="noreferrer"
               className="rounded-full bg-[linear-gradient(135deg,rgba(63,63,70,0.95),rgba(76,29,149,0.92))] px-6 py-3 text-sm font-medium text-white shadow-[0_10px_28px_rgba(76,29,149,0.18)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(76,29,149,0.28)]"
             >
-              Add LinkedIn Profile Link
+              LinkedIn Profile
             </a>
             <a
               href="#"
