@@ -6,12 +6,20 @@ type Project = {
   icon: string;
   title: string;
   domain: string;
+  impactLine: string;
   intro: string;
   problem: string;
   role: string;
-  did: string[];
+  requirement: string[];
+  process: string[];
+  documentation: string[];
+  visualModels: string[];
+  mindset: string;
   solution: string[];
-  impact: string[];
+};
+
+type BadgeProps = {
+  children: React.ReactNode;
 };
 
 type SectionTitleProps = {
@@ -20,44 +28,48 @@ type SectionTitleProps = {
   description?: string;
 };
 
-type BadgeProps = {
-  children: React.ReactNode;
-};
-
-type MiniCardProps = {
-  title: string;
-  text: string;
-};
-
 const projects: Project[] = [
   {
     id: "01",
     icon: "🏦",
     title: "Digital Loan Origination System",
     domain: "Banking",
+    impactLine:
+      "Reduced process complexity by redesigning workflow and defining a digital-first loan journey.",
     intro:
-      "Reimagined a branch-heavy, paper-based loan journey into a smoother digital experience by studying the current process, identifying bottlenecks, and defining clear business requirements.",
+      "Worked on this during my master’s as a Business Analyst-style case study, focusing on end-to-end problem understanding and requirement definition.",
     problem:
-      "Customers had to visit a branch, submit physical documents, and wait days for a decision. Internal teams were re-entering the same data across systems, which slowed the process and increased customer drop-off.",
+      "Loan processing was manual, slow and repetitive. Customers had to visit branches, submit documents and wait days, while internal teams repeated data entry.",
     role:
-      "I worked on this as a Business Analyst, focusing on process discovery, stakeholder conversations, requirement gathering, and translating business pain points into structured solution requirements.",
-    did: [
-      "Spoke with stakeholders and loan officers to understand the real workflow",
-      "Mapped the AS-IS process and identified delays, duplicate work, and friction points",
-      "Defined a TO-BE process for a simpler digital journey",
-      "Documented requirements, user stories, and acceptance criteria",
+      "Approached this by focusing on requirement elicitation, process mapping and solution definition.",
+    requirement: [
+      "Spoke with stakeholders to understand real workflow issues",
+      "Asked focused questions on delays and duplication",
+      "Followed the process step-by-step to find inefficiencies",
     ],
+    process: [
+      "Mapped AS-IS workflow",
+      "Identified bottlenecks and repeated steps",
+      "Designed simplified TO-BE process",
+    ],
+    documentation: [
+      "Wrote business and functional requirements in a simple, structured format",
+      "Converted key flows into user stories with acceptance criteria",
+      "Kept the documentation clear enough for both business and technical discussion",
+    ],
+    visualModels: [
+      "AS-IS process flow",
+      "TO-BE process flow",
+      "Simple user journey",
+      "Workflow diagrams",
+    ],
+    mindset:
+      "Focused on where time and effort were wasted. Once that was clear, the solution became simplifying steps and improving visibility.",
     solution: [
-      "Online multi-step loan application",
-      "Automated credit-check workflow",
-      "Document upload instead of physical paperwork",
-      "Dashboard for internal loan review",
-      "Customer status tracking and visibility",
-    ],
-    impact: [
-      "Faster turnaround time",
-      "Reduced manual work",
-      "Better customer experience",
+      "Online application",
+      "Document upload",
+      "Automated checks",
+      "Tracking dashboard",
     ],
   },
   {
@@ -65,29 +77,42 @@ const projects: Project[] = [
     icon: "🛒",
     title: "AI-Based Recommendation System",
     domain: "E-commerce",
+    impactLine:
+      "Improved product relevance by defining personalized recommendation use cases.",
     intro:
-      "Improved personalization by turning customer behavior insights into clear functional requirements for a recommendation experience that felt more relevant and useful.",
+      "Focused on solving personalization from a Business Analyst perspective.",
     problem:
-      "The platform showed the same products to every customer. That made the shopping journey feel generic and missed opportunities to increase engagement, conversion, and average order value.",
+      "All users saw the same products, reducing engagement and conversion opportunities.",
     role:
-      "I contributed as a Business Analyst by connecting business goals with user behavior insights and translating those findings into recommendation use cases and product requirements.",
-    did: [
-      "Reviewed customer browsing, click, and purchase behavior",
-      "Identified where product relevance mattered most in the journey",
-      "Worked with stakeholders to define recommendation scenarios",
-      "Converted those scenarios into usable requirements for the team",
+      "Analyzed user behavior and defined recommendation requirements aligned with business goals.",
+    requirement: [
+      "Analyzed browsing and click patterns",
+      "Identified drop-off points",
+      "Defined recommendation scenarios",
     ],
+    process: [
+      "Mapped customer journey",
+      "Identified decision points",
+      "Linked recommendations to business goals",
+    ],
+    documentation: [
+      "Documented business goals, recommendation scenarios and requirement flows",
+      "Wrote user stories for features like Recommended For You, Recently Viewed, and fallback logic for new users",
+      "Defined acceptance criteria and key non-functional requirements such as response time, widget loading, inventory sync, and privacy fallback",
+    ],
+    visualModels: [
+      "Customer journey map",
+      "Recommendation touchpoint map",
+      "Simple feature logic for returning vs new users",
+      "Interaction flow for homepage and product pages",
+    ],
+    mindset:
+      "Focused on relevance over features. If it doesn’t help users decide faster, it doesn’t add value.",
     solution: [
-      "Recommended For You section",
-      "Recently Viewed widget",
-      "Trending fallback for new users",
-      "Personalized email recommendation support",
-      "Marketing controls for featured product visibility",
-    ],
-    impact: [
-      "Higher engagement",
-      "Improved conversion potential",
-      "More relevant shopping experience",
+      "Recommended items",
+      "Recently viewed",
+      "Trending fallback",
+      "Marketing control",
     ],
   },
   {
@@ -95,29 +120,42 @@ const projects: Project[] = [
     icon: "🚚",
     title: "Real-Time Delivery Tracking System",
     domain: "Logistics",
+    impactLine:
+      "Reduced delivery failures by improving communication and visibility.",
     intro:
-      "Defined requirements for a delivery experience that improved visibility for customers while also helping drivers and dispatchers reduce failed deliveries.",
+      "Focused on solving operational and customer experience gaps.",
     problem:
-      "Tracking updates were slow, recipients had limited delivery visibility, and drivers often reached a destination without clear instructions. That caused failed deliveries and a frustrating experience on both sides.",
+      "Tracking was slow, communication limited, and deliveries frequently failed.",
     role:
-      "I approached this as a Business Analyst focused on user research, operations flow understanding, and requirement definition for both customer-facing and internal tools.",
-    did: [
-      "Collected driver feedback to understand day-to-day pain points",
-      "Reviewed failed delivery patterns and communication gaps",
-      "Mapped the end-to-end flow across recipient, driver, and dispatcher",
-      "Defined requirements for tracking, notifications, and proof-of-delivery",
+      "Analyzed workflow gaps and defined requirements for better coordination.",
+    requirement: [
+      "Focused on driver and customer pain points",
+      "Used scenario-based thinking",
+      "Converted issues into requirements",
     ],
+    process: [
+      "Mapped delivery workflow",
+      "Identified failure points",
+      "Defined improved TO-BE process",
+    ],
+    documentation: [
+      "Documented requirements for tracking, notifications, delivery preferences and dispatcher support",
+      "Structured the flows clearly for customer, driver and dispatcher use cases",
+      "Kept the documentation practical, simple and easy to explain in a BA setting",
+    ],
+    visualModels: [
+      "End-to-end delivery workflow",
+      "Driver-dispatcher-customer interaction flow",
+      "Failed-delivery pain point map",
+      "Future-state tracking and notification flow",
+    ],
+    mindset:
+      "Looked at both customer and operations side. The issue was communication, not just tracking.",
     solution: [
-      "Live GPS tracking",
-      "SMS delivery alerts",
-      "Recipient delivery preferences",
-      "Driver app delivery instructions",
-      "Photo proof-of-delivery and dispatcher support tools",
-    ],
-    impact: [
-      "Better delivery visibility",
-      "Reduced failed attempts",
-      "Improved customer and operations experience",
+      "Live tracking",
+      "Notifications",
+      "Delivery preferences",
+      "Dispatcher support",
     ],
   },
 ];
@@ -127,6 +165,7 @@ const skills: string[] = [
   "Stakeholder Analysis",
   "Process Mapping",
   "AS-IS / TO-BE",
+  "Gap Analysis",
   "User Stories",
   "Acceptance Criteria",
   "Agile / Scrum",
@@ -137,78 +176,85 @@ const skills: string[] = [
   "Power BI",
 ];
 
-function SectionTitle({ eyebrow, title, description }: SectionTitleProps) {
-  return (
-    <div className="max-w-3xl">
-      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-zinc-500">
-        {eyebrow}
-      </p>
-      <h2 className="text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl">
-        {title}
-      </h2>
-      {description ? (
-        <p className="mt-4 text-base leading-7 text-zinc-600">{description}</p>
-      ) : null}
-    </div>
-  );
-}
-
 function Badge({ children }: BadgeProps) {
   return (
-    <span className="rounded-full border border-zinc-200/90 bg-white/90 px-4 py-2 text-sm text-zinc-700 shadow-[0_6px_18px_rgba(24,24,27,0.05)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-violet-200 hover:shadow-[0_10px_24px_rgba(168,85,247,0.12)]">
+    <span className="rounded-full border border-white/14 bg-white/8 px-4 py-2 text-sm text-slate-100 shadow-[0_8px_24px_rgba(0,0,0,0.12)] backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/35 hover:bg-white/12 hover:shadow-[0_12px_28px_rgba(34,211,238,0.12)]">
       {children}
     </span>
   );
 }
 
-function MiniCard({ title, text }: MiniCardProps) {
+function SectionTitle({ eyebrow, title, description }: SectionTitleProps) {
   return (
-    <div className="rounded-3xl border border-zinc-200/90 bg-white/92 p-5 shadow-[0_10px_30px_rgba(24,24,27,0.06)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-violet-200 hover:shadow-[0_16px_40px_rgba(168,85,247,0.14)]">
-      <p className="text-sm font-semibold text-zinc-900">{title}</p>
-      <p className="mt-2 text-sm leading-6 text-zinc-600">{text}</p>
+    <div className="max-w-3xl">
+      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-violet-200">
+        {eyebrow}
+      </p>
+      <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+        {title}
+      </h2>
+      {description ? (
+        <p className="mt-4 text-base leading-7 text-slate-200/85">{description}</p>
+      ) : null}
+    </div>
+  );
+}
+
+function InfoCard({ title, text }: { title: string; text: string }) {
+  return (
+    <div className="rounded-3xl border border-white/12 bg-white/8 p-5 shadow-[0_14px_40px_rgba(0,0,0,0.18)] backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/25 hover:bg-white/10 hover:shadow-[0_18px_44px_rgba(34,211,238,0.10)]">
+      <p className="text-sm font-semibold text-white">{title}</p>
+      <p className="mt-2 text-sm leading-6 text-slate-200/85">{text}</p>
     </div>
   );
 }
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-x-hidden bg-[radial-gradient(circle_at_top_left,rgba(168,85,247,0.08),transparent_24%),radial-gradient(circle_at_top_right,rgba(34,211,238,0.08),transparent_22%),linear-gradient(180deg,#fbfbfd_0%,#f7f7f4_45%,#f5f4f8_100%)] text-zinc-900">
+    <main className="relative min-h-screen overflow-x-hidden bg-[#07141a] text-white">
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/jeremy-bishop-G9i_plbfDgk-unsplash.jpg')" }}
+      />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,10,14,0.82)_0%,rgba(5,16,22,0.78)_22%,rgba(8,20,28,0.76)_48%,rgba(9,18,28,0.84)_72%,rgba(6,12,18,0.92)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.16),transparent_22%),radial-gradient(circle_at_top_left,rgba(59,130,246,0.12),transparent_18%),radial-gradient(circle_at_bottom_left,rgba(168,85,247,0.12),transparent_20%)]" />
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-24 left-[-8%] h-72 w-72 rounded-full bg-violet-400/12 blur-3xl" />
-        <div className="absolute top-[14%] right-[-6%] h-80 w-80 rounded-full bg-cyan-300/12 blur-3xl" />
-        <div className="absolute bottom-[12%] left-[18%] h-64 w-64 rounded-full bg-fuchsia-300/10 blur-3xl" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:54px_54px] opacity-30" />
+        <div className="absolute -top-24 left-[-8%] h-72 w-72 rounded-full bg-cyan-400/14 blur-3xl" />
+        <div className="absolute top-[16%] right-[-6%] h-80 w-80 rounded-full bg-sky-300/14 blur-3xl" />
+        <div className="absolute bottom-[10%] left-[18%] h-64 w-64 rounded-full bg-violet-400/12 blur-3xl" />
       </div>
 
-      <section className="relative border-b border-zinc-200/80 bg-gradient-to-b from-white/95 to-[#f7f7f4]/95 backdrop-blur-sm">
+      <section className="relative border-b border-white/10">
         <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-12 lg:py-24">
           <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-500">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-300/80">
                 Business Analyst Portfolio
               </p>
-              <h1 className="mt-5 text-5xl font-semibold tracking-tight text-zinc-950 sm:text-6xl lg:text-7xl">
+              <h1 className="mt-5 text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
                 Siddhartha Hemchand Nidiginti
               </h1>
-              <p className="mt-4 text-lg font-medium text-zinc-700 sm:text-xl">
+              <p className="mt-4 text-lg font-medium text-slate-200/90 sm:text-xl">
                 Aspiring Business Analyst • Product & Data Enthusiast
               </p>
-              <p className="mt-6 max-w-3xl text-base leading-8 text-zinc-600 sm:text-lg">
-                I enjoy breaking down business problems into clear requirements,
-                practical workflows, and user-focused solutions. My work sits at
-                the intersection of business, data, and product across banking,
-                e-commerce, and logistics case studies.
+              <p className="mt-6 max-w-3xl text-base leading-8 text-slate-200/80 sm:text-lg">
+                I approach problems the way a Business Analyst actually works by first understanding what’s really happening, then breaking it into processes and finally defining clear, practical requirements.
+              </p>
+              <p className="mt-4 max-w-3xl text-base leading-8 text-slate-200/72 sm:text-lg">
+                These case studies reflect how I practiced focusing on real workflows, stakeholder thinking and solution clarity.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
                   href="#projects"
-                  className="rounded-full bg-[linear-gradient(135deg,#18181b_0%,#4c1d95_55%,#1f2937_100%)] px-6 py-3 text-sm font-medium text-white shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_10px_30px_rgba(76,29,149,0.24)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_16px_40px_rgba(76,29,149,0.32)]"
+                  className="rounded-full bg-[linear-gradient(135deg,rgba(10,17,28,0.92)_0%,rgba(12,74,110,0.92)_48%,rgba(17,24,39,0.92)_100%)] px-6 py-3 text-sm font-medium text-white shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_16px_40px_rgba(8,145,178,0.22)] backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_rgba(255,255,255,0.10),0_22px_48px_rgba(34,211,238,0.24)]"
                 >
                   View Projects
                 </a>
                 <a
                   href="mailto:siddharthahemchand@gmail.com"
-                  className="rounded-full border border-violet-200 bg-white/90 px-6 py-3 text-sm font-medium text-zinc-900 shadow-[0_8px_24px_rgba(168,85,247,0.08)] transition duration-300 hover:-translate-y-0.5 hover:border-violet-300 hover:bg-white hover:shadow-[0_12px_32px_rgba(168,85,247,0.16)]"
+                  className="rounded-full border border-white/14 bg-white/10 px-6 py-3 text-sm font-medium text-white shadow-[0_10px_28px_rgba(0,0,0,0.14)] backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/30 hover:bg-white/14 hover:shadow-[0_14px_34px_rgba(34,211,238,0.14)]"
                 >
                   Email Me
                 </a>
@@ -218,62 +264,52 @@ export default function Home() {
                 <Badge>Requirement Gathering</Badge>
                 <Badge>Process Mapping</Badge>
                 <Badge>Stakeholder Analysis</Badge>
-                <Badge>Product Thinking</Badge>
+                <Badge>Business Thinking</Badge>
               </div>
             </div>
 
             <div className="space-y-5">
-              <div className="rounded-[32px] border border-zinc-200/90 bg-white/92 p-6 shadow-[0_12px_36px_rgba(24,24,27,0.06)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-violet-200 hover:shadow-[0_18px_50px_rgba(168,85,247,0.14)] sm:p-7">
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-zinc-500">
+              <div className="rounded-[32px] border border-white/12 bg-white/8 p-6 shadow-[0_18px_50px_rgba(0,0,0,0.18)] backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/25 hover:bg-white/10 hover:shadow-[0_24px_56px_rgba(34,211,238,0.12)] sm:p-7">
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-300/75">
                   Quick Profile
                 </p>
                 <div className="mt-5 grid gap-5 sm:grid-cols-2">
-                  <MiniCard
+                  <InfoCard
                     title="Education"
                     text="M.S. in Engineering Management with Data Analytics specialization at California State University, Northridge."
                   />
-                  <MiniCard
+                  <InfoCard
                     title="Background"
-                    text="Background in Business Analytics and Engineering Management with a focus on data-driven problem solving and structured business decision making."
+                    text="Background in Business Analytics and Engineering Management with a focus on data-driven problem solving and structured decision making."
                   />
                 </div>
-                <div className="mt-5 rounded-3xl border border-zinc-200/80 bg-[linear-gradient(180deg,rgba(250,250,250,1),rgba(245,243,255,0.72))] p-5 shadow-[0_8px_24px_rgba(24,24,27,0.04)]">
-                  <p className="text-sm font-semibold text-zinc-900">
-                    What I focus on
-                  </p>
-                  <p className="mt-2 text-sm leading-6 text-zinc-600">
-                    Understanding how current systems work, identifying gaps, and
-                    shaping better solutions that improve both user experience and
-                    operational efficiency.
+                <div className="mt-5 rounded-3xl border border-white/12 bg-white/8 p-5 shadow-[0_10px_24px_rgba(0,0,0,0.12)] backdrop-blur-md">
+                  <p className="text-sm font-semibold text-white">What I focus on</p>
+                  <p className="mt-2 text-sm leading-6 text-slate-200/82">
+                    Understanding how systems actually work, identifying gaps in the process and defining structured requirements that are easy to build, test and scale.
                   </p>
                 </div>
               </div>
 
-              <div className="rounded-[32px] border border-zinc-200/90 bg-white/92 p-6 shadow-[0_12px_36px_rgba(24,24,27,0.06)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-violet-200 hover:shadow-[0_18px_50px_rgba(168,85,247,0.14)] sm:p-7">
-                <p className="text-sm font-semibold text-zinc-900">My approach</p>
+              <div className="rounded-[32px] border border-white/12 bg-white/8 p-6 shadow-[0_18px_50px_rgba(0,0,0,0.18)] backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/25 hover:bg-white/10 hover:shadow-[0_24px_56px_rgba(34,211,238,0.12)] sm:p-7">
+                <p className="text-sm font-semibold text-white">My approach</p>
                 <div className="mt-5 grid gap-4 sm:grid-cols-3">
-                  <div className="rounded-2xl border border-zinc-200/80 bg-[linear-gradient(180deg,rgba(250,250,250,1),rgba(245,243,255,0.6))] p-4 shadow-[0_6px_18px_rgba(24,24,27,0.04)] transition duration-300 hover:border-violet-200 hover:shadow-[0_10px_24px_rgba(168,85,247,0.10)]">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
-                      01 Discover
-                    </p>
-                    <p className="mt-2 text-sm leading-6 text-zinc-600">
-                      Study the current process, pain points, and goals.
+                  <div className="rounded-2xl border border-white/12 bg-white/8 p-4 shadow-[0_6px_18px_rgba(0,0,0,0.10)] backdrop-blur-md">
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-300/75">01 Understand</p>
+                    <p className="mt-2 text-sm leading-6 text-slate-200/82">
+                      I start with the real problem not assumptions, but actual workflow and pain points.
                     </p>
                   </div>
-                  <div className="rounded-2xl border border-zinc-200/80 bg-[linear-gradient(180deg,rgba(250,250,250,1),rgba(245,243,255,0.6))] p-4 shadow-[0_6px_18px_rgba(24,24,27,0.04)] transition duration-300 hover:border-violet-200 hover:shadow-[0_10px_24px_rgba(168,85,247,0.10)]">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
-                      02 Define
-                    </p>
-                    <p className="mt-2 text-sm leading-6 text-zinc-600">
-                      Turn findings into requirements, flows, and stories.
+                  <div className="rounded-2xl border border-white/12 bg-white/8 p-4 shadow-[0_6px_18px_rgba(0,0,0,0.10)] backdrop-blur-md">
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-300/75">02 Structure</p>
+                    <p className="mt-2 text-sm leading-6 text-slate-200/82">
+                      I break the process into steps, identify gaps and define clear requirements.
                     </p>
                   </div>
-                  <div className="rounded-2xl border border-zinc-200/80 bg-[linear-gradient(180deg,rgba(250,250,250,1),rgba(245,243,255,0.6))] p-4 shadow-[0_6px_18px_rgba(24,24,27,0.04)] transition duration-300 hover:border-violet-200 hover:shadow-[0_10px_24px_rgba(168,85,247,0.10)]">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
-                      03 Improve
-                    </p>
-                    <p className="mt-2 text-sm leading-6 text-zinc-600">
-                      Shape a practical solution with business value.
+                  <div className="rounded-2xl border border-white/12 bg-white/8 p-4 shadow-[0_6px_18px_rgba(0,0,0,0.10)] backdrop-blur-md">
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-300/75">03 Improve</p>
+                    <p className="mt-2 text-sm leading-6 text-slate-200/82">
+                      I design simple, practical solutions that improve efficiency and user experience.
                     </p>
                   </div>
                 </div>
@@ -283,127 +319,97 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        id="projects"
-        className="relative mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-12 lg:py-24"
-      >
+      <section id="projects" className="relative mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-12 lg:py-24">
         <SectionTitle
           eyebrow="Selected Work"
-          title="Case studies that show how I think through business problems"
-          description="These projects highlight how I approach analysis, requirement definition, and solution design across different domains."
+          title="Case studies that reflect how I worked through problems "
+          description="I kept these practical , the way I would naturally explain my thinking in a Business Analyst conversation."
         />
 
         <div className="mt-12 space-y-10">
           {projects.map((project) => (
             <div
               key={project.id}
-              className="group overflow-hidden rounded-[32px] border border-zinc-200/90 bg-white/94 shadow-[0_12px_36px_rgba(24,24,27,0.06)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-violet-200 hover:shadow-[0_0_0_1px_rgba(168,85,247,0.12),0_22px_55px_rgba(168,85,247,0.18)]"
+              className="group overflow-hidden rounded-[32px] border border-white/12 bg-white/8 shadow-[0_18px_48px_rgba(0,0,0,0.18)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-cyan-300/25 hover:bg-white/10 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.10),0_24px_60px_rgba(34,211,238,0.12)]"
             >
-              <div className="border-b border-zinc-100/80 bg-gradient-to-r from-zinc-50 via-white to-violet-50/40 px-6 py-6 sm:px-8">
-                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-zinc-500">
-                      {project.id} • {project.domain}
-                    </p>
-                    <h3 className="mt-3 text-2xl font-semibold tracking-tight text-zinc-950 sm:text-3xl">
-                      <span className="mr-3">{project.icon}</span>
-                      {project.title}
-                    </h3>
-                    <p className="mt-4 max-w-3xl text-base leading-7 text-zinc-600">
-                      {project.intro}
-                    </p>
-                  </div>
+              <div className="border-b border-white/10 bg-[linear-gradient(90deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03),rgba(34,211,238,0.08))] px-6 py-6 sm:px-8">
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-300/75">
+                  {project.id} • {project.domain}
+                </p>
+                <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                  <span className="mr-3">{project.icon}</span>
+                  {project.title}
+                </h3>
+                <p className="mt-4 max-w-3xl text-base leading-7 text-slate-200/82">
+                  {project.intro}
+                </p>
+                <div className="mt-4 inline-flex rounded-full border border-cyan-300/20 bg-cyan-300/8 px-4 py-2 text-sm font-medium text-cyan-100">
+                  {project.impactLine}
                 </div>
               </div>
 
               <div className="grid gap-6 px-6 py-6 sm:px-8 lg:grid-cols-2">
                 <div className="space-y-6">
-                  <div className="rounded-3xl border border-zinc-200/90 bg-white/92 p-5 shadow-[0_10px_30px_rgba(24,24,27,0.05)] transition duration-300 hover:border-violet-200 hover:shadow-[0_14px_32px_rgba(168,85,247,0.10)]">
-                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500">
-                      Problem
-                    </p>
-                    <p className="mt-3 text-sm leading-7 text-zinc-700">
-                      {project.problem}
-                    </p>
+                  <div className="rounded-3xl border border-white/12 bg-white/8 p-5 backdrop-blur-md">
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-300/75">Problem</p>
+                    <p className="mt-3 text-sm leading-7 text-slate-200/82">{project.problem}</p>
                   </div>
 
-                  <div className="rounded-3xl border border-zinc-200/90 bg-white/92 p-5 shadow-[0_10px_30px_rgba(24,24,27,0.05)] transition duration-300 hover:border-violet-200 hover:shadow-[0_14px_32px_rgba(168,85,247,0.10)]">
-                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500">
-                      My Role
-                    </p>
-                    <p className="mt-3 text-sm leading-7 text-zinc-700">
-                      {project.role}
-                    </p>
+                  <div className="rounded-3xl border border-white/12 bg-white/8 p-5 backdrop-blur-md">
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-300/75">My Role</p>
+                    <p className="mt-3 text-sm leading-7 text-slate-200/82">{project.role}</p>
+                  </div>
+
+                  <div className="rounded-3xl border border-white/12 bg-white/8 p-5 backdrop-blur-md">
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-300/75">Requirement Gathering</p>
+                    <ul className="mt-3 space-y-3 text-sm leading-7 text-slate-200/82">
+                      {project.requirement.map((item) => (
+                        <li key={item}>• {item}</li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
 
                 <div className="space-y-6">
-                  <div className="rounded-3xl border border-zinc-200/90 bg-white/92 p-5 shadow-[0_10px_30px_rgba(24,24,27,0.05)] transition duration-300 hover:border-violet-200 hover:shadow-[0_14px_32px_rgba(168,85,247,0.10)]">
-                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500">
-                      What I Did
-                    </p>
-                    <ul className="mt-3 space-y-3 text-sm leading-7 text-zinc-700">
-                      {project.did.map((item) => (
+                  <div className="rounded-3xl border border-white/12 bg-white/8 p-5 backdrop-blur-md">
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-300/75">Business Process Work</p>
+                    <ul className="mt-3 space-y-3 text-sm leading-7 text-slate-200/82">
+                      {project.process.map((item) => (
                         <li key={item}>• {item}</li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="rounded-3xl border border-zinc-200/90 bg-white/92 p-5 shadow-[0_10px_30px_rgba(24,24,27,0.05)] transition duration-300 hover:border-violet-200 hover:shadow-[0_14px_32px_rgba(168,85,247,0.10)]">
-                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500">
-                      Solution
-                    </p>
-                    <ul className="mt-3 space-y-3 text-sm leading-7 text-zinc-700">
+                  <div className="rounded-3xl border border-white/12 bg-white/8 p-5 backdrop-blur-md">
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-300/75">Documentation</p>
+                    <ul className="mt-3 space-y-3 text-sm leading-7 text-slate-200/82">
+                      {project.documentation.map((item) => (
+                        <li key={item}>• {item}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="rounded-3xl border border-white/12 bg-white/8 p-5 backdrop-blur-md">
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-300/75">Visual Models</p>
+                    <ul className="mt-3 space-y-3 text-sm leading-7 text-slate-200/82">
+                      {project.visualModels.map((item) => (
+                        <li key={item}>• {item}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="rounded-3xl border border-white/12 bg-white/8 p-5 backdrop-blur-md">
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-300/75">How I Thought Through It</p>
+                    <p className="mt-3 text-sm leading-7 text-slate-200/82">{project.mindset}</p>
+                  </div>
+
+                  <div className="rounded-3xl border border-white/12 bg-white/8 p-5 backdrop-blur-md">
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-300/75">Solution</p>
+                    <ul className="mt-3 space-y-3 text-sm leading-7 text-slate-200/82">
                       {project.solution.map((item) => (
                         <li key={item}>• {item}</li>
                       ))}
                     </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div className="border-t border-zinc-100 bg-zinc-50/80 px-6 py-6 sm:px-8">
-                <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500">
-                      Impact
-                    </p>
-                    <ul className="mt-3 space-y-3 text-sm leading-7 text-zinc-700">
-                      {project.impact.map((item) => (
-                        <li key={item}>• {item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500">
-                      Visual Summary
-                    </p>
-                    <div className="mt-4 grid gap-3 sm:grid-cols-3">
-                      <div className="rounded-2xl border border-zinc-200/80 bg-white p-4 shadow-[0_6px_18px_rgba(24,24,27,0.04)] transition duration-300 hover:border-violet-200 hover:shadow-[0_10px_24px_rgba(168,85,247,0.10)]">
-                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
-                          Before
-                        </p>
-                        <p className="mt-2 text-sm text-zinc-700">
-                          Manual process and friction
-                        </p>
-                      </div>
-                      <div className="rounded-2xl border border-zinc-200/80 bg-white p-4 shadow-[0_6px_18px_rgba(24,24,27,0.04)] transition duration-300 hover:border-violet-200 hover:shadow-[0_10px_24px_rgba(168,85,247,0.10)]">
-                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
-                          BA Work
-                        </p>
-                        <p className="mt-2 text-sm text-zinc-700">
-                          Analysis, mapping, and requirements
-                        </p>
-                      </div>
-                      <div className="rounded-2xl border border-zinc-200/80 bg-white p-4 shadow-[0_6px_18px_rgba(24,24,27,0.04)] transition duration-300 hover:border-violet-200 hover:shadow-[0_10px_24px_rgba(168,85,247,0.10)]">
-                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
-                          After
-                        </p>
-                        <p className="mt-2 text-sm text-zinc-700">
-                          Clearer workflow and better experience
-                        </p>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -412,12 +418,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-zinc-200/80 bg-white/80 backdrop-blur-sm">
+      <section className="border-y border-white/10 bg-white/5 backdrop-blur-sm">
         <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-12 lg:py-20">
           <SectionTitle
             eyebrow="Skills"
             title="Core skills I bring into projects"
-            description="A combination of analysis, communication, structure, and tools that support strong business analysis work."
+            description="These are the Business Analysis skills I applied across these case studies — from understanding problems to defining structured, build-ready requirements."
           />
           <div className="mt-8 flex flex-wrap gap-3">
             {skills.map((skill) => (
@@ -428,21 +434,17 @@ export default function Home() {
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-12 lg:py-24">
-        <div className="rounded-[32px] bg-[linear-gradient(135deg,#111827_0%,#3b0764_55%,#111827_100%)] px-6 py-10 text-white shadow-[0_14px_40px_rgba(76,29,149,0.22)] sm:px-8 lg:px-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-zinc-300">
-            Contact
-          </p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
-            Let’s connect.
-          </h2>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-200">
-            I’m actively building toward Business Analyst, Product, and analytics-facing roles. If you’d like to connect, discuss opportunities, or review my work, feel free to reach out.
+        <div className="rounded-[32px] border border-white/12 bg-[linear-gradient(135deg,rgba(9,15,23,0.76)_0%,rgba(10,36,54,0.72)_40%,rgba(20,17,43,0.72)_100%)] px-6 py-10 text-white shadow-[0_20px_60px_rgba(0,0,0,0.24)] backdrop-blur-md sm:px-8 lg:px-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-300/75">Contact</p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">Let’s connect.</h2>
+          <p className="mt-4 max-w-2xl text-base leading-7 text-slate-200/82">
+            I’m actively looking for Business Analyst and Product-focused roles.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="mailto:siddharthahemchand@gmail.com"
-              className="rounded-full bg-[linear-gradient(135deg,#ffffff_0%,#f5f3ff_100%)] px-6 py-3 text-sm font-medium text-zinc-950 shadow-[0_10px_30px_rgba(255,255,255,0.08),0_12px_32px_rgba(168,85,247,0.18)] transition duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_14px_36px_rgba(168,85,247,0.24)]"
+              className="rounded-full bg-[linear-gradient(135deg,rgba(255,255,255,0.94)_0%,rgba(224,242,254,0.94)_100%)] px-6 py-3 text-sm font-medium text-slate-950 shadow-[0_14px_34px_rgba(255,255,255,0.10),0_14px_34px_rgba(34,211,238,0.14)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(34,211,238,0.18)]"
             >
               siddharthahemchand@gmail.com
             </a>
@@ -450,13 +452,13 @@ export default function Home() {
               href="https://www.linkedin.com/in/siddhartha-hemchand-119193218/"
               target="_blank"
               rel="noreferrer"
-              className="rounded-full bg-[linear-gradient(135deg,rgba(63,63,70,0.95),rgba(76,29,149,0.92))] px-6 py-3 text-sm font-medium text-white shadow-[0_10px_28px_rgba(76,29,149,0.18)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(76,29,149,0.28)]"
+              className="rounded-full border border-white/12 bg-white/10 px-6 py-3 text-sm font-medium text-white shadow-[0_10px_28px_rgba(0,0,0,0.16)] backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/30 hover:bg-white/14"
             >
               LinkedIn Profile
             </a>
             <a
               href="#"
-              className="rounded-full bg-[linear-gradient(135deg,rgba(63,63,70,0.95),rgba(76,29,149,0.92))] px-6 py-3 text-sm font-medium text-white shadow-[0_10px_28px_rgba(76,29,149,0.18)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(76,29,149,0.28)]"
+              className="rounded-full border border-white/12 bg-white/10 px-6 py-3 text-sm font-medium text-white shadow-[0_10px_28px_rgba(0,0,0,0.16)] backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-cyan-300/30 hover:bg-white/14"
             >
               Add Resume PDF Link
             </a>
